@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Inorganic Chemistry Reaction Predictor</title>
+   <link href="style.css" rel="stylesheet">
+</head>
+<body>
+   <h1>Inorganic Chemistry Reaction Predictor</h1>
+
+   <div>
+      <label for="reactant1">Reactant 1:</label>
+      <select id="reactant1"></select>
+   </div>
+   <div>
+      <label for="reactant2">Reactant 2:</label>
+      <select id="reactant2"></select>
+   </div>
+   <div>
+      <label for="reactionType">Reaction Type:</label>
+      <select id="reactionType"></select>
+   </div>
+   <button id="predictButton">Predict Reaction</button>
+
+   <div id="result"></div>
+
+   <script type="module">
+      import { populateSelectOptions, predictReaction } from './main.js';
+
+      // Populate select options on DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', () => {
+      populateSelectOptions('reactant1', 'reactant2', 'reactionType');
+      const predictButton = document.getElementById('predictButton');
+      predictButton.addEventListener('click', predictReaction);
+      });
+   </script>
+</body>
+</html>
